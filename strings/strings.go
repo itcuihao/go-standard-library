@@ -155,3 +155,8 @@ func IndexRune() {
 	ru = '1'
 	fmt.Println(strings.IndexRune("5221-JAPAN", ru))
 }
+
+// Join 连接字符串
+func Join(s []string, sep string) string {
+	return strings.Join(s, sep)
+}
