@@ -15,3 +15,7 @@ func TestJoin(t *testing.T) {
 	s := []string{"I", "am", "hao"}
 	t.Log(Join(s, " "))
 }
+func TestLastIndex(t *testing.T) {
+	s := "abcabcabc"
+	t.Log(LastIndex(s, "abc"))
+}

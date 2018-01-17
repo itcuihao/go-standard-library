@@ -160,3 +160,8 @@ func IndexRune() {
 func Join(s []string, sep string) string {
 	return strings.Join(s, sep)
 }
+
+// LastIndex 返回字符串中最后匹配的下标，否则返回-1
+func LastIndex(s string, substr string) int {
+	return strings.LastIndex(s, substr)
+}
