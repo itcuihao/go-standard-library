@@ -165,3 +165,8 @@ func Join(s []string, sep string) string {
 func LastIndex(s string, substr string) int {
 	return strings.LastIndex(s, substr)
 }
+
+// Repeat 字符串重复
+func Repeat(s string, count int) string {
+	return strings.Repeat(s, count)
+}

@@ -19,3 +19,7 @@ func TestLastIndex(t *testing.T) {
 	s := "abcabcabc"
 	t.Log(LastIndex(s, "abc"))
 }
+func TestRepeat(t *testing.T) {
+	s := "abc"
+	t.Log(Repeat(s, 2))
+}
