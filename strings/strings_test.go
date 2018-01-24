@@ -23,3 +23,8 @@ func TestRepeat(t *testing.T) {
 	s := "abc"
 	t.Log(Repeat(s, 2))
 }
+func TestReplace(t *testing.T) {
+	s := "abcabcabc"
+	t.Log(Replace(s,"ab","c", 0))
+}
+	

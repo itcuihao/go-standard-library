@@ -170,3 +170,12 @@ func LastIndex(s string, substr string) int {
 func Repeat(s string, count int) string {
 	return strings.Repeat(s, count)
 }
+
+// Replace 字符串替换
+// s 字符串
+// old 被替换的
+// new 替换的
+// n 替换次数，小于0时替换次数不限
+func Replace(s,old,new string, n int) string {
+	return strings.Replace(s, old, new, n)
+}
