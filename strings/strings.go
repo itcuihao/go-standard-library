@@ -176,6 +176,13 @@ func Repeat(s string, count int) string {
 // old 被替换的
 // new 替换的
 // n 替换次数，小于0时替换次数不限
-func Replace(s,old,new string, n int) string {
+func Replace(s, old, new string, n int) string {
 	return strings.Replace(s, old, new, n)
+}
+
+// Split 字符串分割
+// s 被分割的串
+// sep 分割标记
+func Split(s, sep string) []string {
+	return strings.Split(s, sep)
 }

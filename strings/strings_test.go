@@ -25,6 +25,10 @@ func TestRepeat(t *testing.T) {
 }
 func TestReplace(t *testing.T) {
 	s := "abcabcabc"
-	t.Log(Replace(s,"ab","c", 0))
+	t.Log(Replace(s, "ab", "c", 0))
 }
-	
+
+func TestSplit(t *testing.T) {
+	s := "abcabcabc"
+	t.Log(Split(s, "b"))
+}
