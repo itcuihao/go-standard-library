@@ -186,3 +186,13 @@ func Replace(s, old, new string, n int) string {
 func Split(s, sep string) []string {
 	return strings.Split(s, sep)
 }
+
+// SplitN 字符串分隔
+// s 被分割的串
+// sep 分割标记
+// n> 0：最多有n个子串; 最后一个子字符串将是未分割的余数。
+// n == 0：结果为零（子字符串为零）
+// n <0：所有子字符串
+func SplitN(s, sep string, n int) []string {
+	return strings.SplitN(s, sep, n)
+}

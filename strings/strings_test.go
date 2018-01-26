@@ -32,3 +32,10 @@ func TestSplit(t *testing.T) {
 	s := "abcabcabc"
 	t.Log(Split(s, "b"))
 }
+
+func TestSplitN(t *testing.T) {
+	s := "ab,ab,ab,ab"
+	for i := -2; i < 6; i++ {
+		t.Logf("n=%d;out:%v", i, SplitN(s, ",", i))
+	}
+}
