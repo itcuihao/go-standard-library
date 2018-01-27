@@ -196,3 +196,11 @@ func Split(s, sep string) []string {
 func SplitN(s, sep string, n int) []string {
 	return strings.SplitN(s, sep, n)
 }
+
+// SplitAfter 字符串分割
+// s 被分割的串
+// sep 分割标记
+// 与Split区别是SplitAfter分割后的串包含分割标记
+func SplitAfter(s, sep string) []string {
+	return strings.SplitAfter(s, sep)
+}

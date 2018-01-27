@@ -29,8 +29,10 @@ func TestReplace(t *testing.T) {
 }
 
 func TestSplit(t *testing.T) {
-	s := "abcabcabc"
-	t.Log(Split(s, "b"))
+	s := "ab,ab,ab,ab"
+	t.Log(Split(s, ","))
+	t.Log(Split(s, ""))
+	t.Log(Split(s, "."))
 }
 
 func TestSplitN(t *testing.T) {
@@ -38,4 +40,10 @@ func TestSplitN(t *testing.T) {
 	for i := -2; i < 6; i++ {
 		t.Logf("n=%d;out:%v", i, SplitN(s, ",", i))
 	}
+}
+func TestSplitAfter(t *testing.T) {
+	s := "ab,ab,ab,ab"
+	t.Log(SplitAfter(s, ","))
+	t.Log(SplitAfter(s, ""))
+	t.Log(SplitAfter(s, "."))
 }
