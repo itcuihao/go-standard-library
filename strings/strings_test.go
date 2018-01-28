@@ -47,3 +47,10 @@ func TestSplitAfter(t *testing.T) {
 	t.Log(SplitAfter(s, ""))
 	t.Log(SplitAfter(s, "."))
 }
+
+func TestSplitAfterN(t *testing.T) {
+	s := "ab,ab,ab,ab"
+	for i := -2; i < 6; i++ {
+		t.Logf("n=%d;out:%v", i, SplitAfterN(s, ",", i))
+	}
+}
