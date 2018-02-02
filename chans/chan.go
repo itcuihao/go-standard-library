@@ -4,6 +4,7 @@ import (
 	"log"
 	"math"
 	"math/rand"
+	"strconv"
 	"sync"
 	"time"
 )
@@ -91,9 +92,10 @@ func (mc *myChanMutex) isClosed() bool {
 	return mc.closed
 }
 
+// ------------------------------------------
 // Solutions Which Close Channels Gracefully
 
-// M receivers, one sender,
+// 1.M receivers, one sender,
 // the sender says "no more sends" by closing the data channel
 func senderSayStop() {
 	rand.Seed(time.Now().UnixNano())
@@ -132,7 +134,7 @@ func senderSayStop() {
 	wg.Wait()
 }
 
-// One receiver, N senders,
+// 2.One receiver, N senders,
 // the receiver says "please stop sending more"
 // by closing an additional signal channel
 func receiverSayStop() {
@@ -192,4 +194,91 @@ func receiverSayStop() {
 	}()
 
 	wg.Wait()
+}
+
+// 3. M receivers, N senders,
+// random one of them says "let's end the game"
+// by notifying a moderator to close an additional signal channel
+func moderatorSayStop() {
+	rand.Seed(time.Now().UnixNano())
+	log.SetFlags(0)
+
+	const maxRandomNumber = 10
+	const numReceivers = 10
+	const numSenders = 1000
+
+	wg := sync.WaitGroup{}
+	wg.Add(numReceivers)
+
+	ch := make(chan int, 100)
+	stopCh := make(chan struct{})
+	toStop := make(chan string, 1)
+
+	var stoppedBy string
+
+	// moderator
+	go func() {
+		stoppedBy = <-toStop
+		close(stopCh)
+	}()
+
+	// senders
+	for i := 0; i < numSenders; i++ {
+		go func(id string) {
+			for {
+				value := rand.Intn(maxRandomNumber)
+				log.Println("sender:", value)
+				if value == 11 {
+					select {
+					default:
+					case toStop <- "sender#" + id:
+					}
+					return
+				}
+
+				select {
+				default:
+				case <-stopCh:
+					return
+				}
+
+				select {
+				case <-stopCh:
+					return
+				case ch <- value:
+				}
+			}
+		}(strconv.Itoa(i))
+	}
+
+	// receivers
+	for i := 0; i < numReceivers; i++ {
+		go func(id string) {
+			defer wg.Done()
+
+			for {
+				select {
+				default:
+				case <-stopCh:
+					return
+				}
+
+				select {
+				case <-stopCh:
+					return
+				case value := <-ch:
+					log.Println("receiver:", value)
+					if value == maxRandomNumber-1 {
+						select {
+						default:
+						case toStop <- "receivers#" + id:
+						}
+						return
+					}
+				}
+			}
+		}(strconv.Itoa(i))
+	}
+	wg.Wait()
+	log.Println("stopped by: ", stoppedBy)
 }

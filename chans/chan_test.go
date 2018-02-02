@@ -55,3 +55,7 @@ func TestSenderSayStop(t *testing.T) {
 func TestReceiverSayStop(t *testing.T) {
 	receiverSayStop()
 }
+
+func TestModeratorSayStop(t *testing.T) {
+	moderatorSayStop()
+}
