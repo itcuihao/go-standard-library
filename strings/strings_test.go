@@ -54,3 +54,8 @@ func TestSplitAfterN(t *testing.T) {
 		t.Logf("n=%d;out:%v", i, SplitAfterN(s, ",", i))
 	}
 }
+
+func TestTitle(t *testing.T) {
+	s := "ab b abb"
+	t.Log(Title(s))
+}

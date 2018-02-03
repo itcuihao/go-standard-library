@@ -212,3 +212,8 @@ func SplitAfter(s, sep string) []string {
 func SplitAfterN(s, sep string, n int) []string {
 	return strings.SplitAfterN(s, sep, n)
 }
+
+// Title 把单词的第一个字母变成大写
+func Title(s string) string {
+	return strings.Title(s)
+}
