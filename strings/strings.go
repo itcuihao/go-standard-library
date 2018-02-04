@@ -217,3 +217,8 @@ func SplitAfterN(s, sep string, n int) []string {
 func Title(s string) string {
 	return strings.Title(s)
 }
+
+// ToTitle 把单词的所有字母变为大写
+func ToTitle(s string) string {
+	return strings.ToTitle(s)
+}
