@@ -222,3 +222,8 @@ func Title(s string) string {
 func ToTitle(s string) string {
 	return strings.ToTitle(s)
 }
+
+// ToLower 把单词都变成小写
+func ToLower(s string) string {
+	return strings.ToLower(s)
+}

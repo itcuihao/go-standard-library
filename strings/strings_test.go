@@ -64,3 +64,7 @@ func TestToTitle(t *testing.T) {
 	s := "ab ab ab"
 	t.Log(ToTitle(s))
 }
+func TestToLower(t *testing.T) {
+	s := "ab AB ab"
+	t.Log(ToLower(s))
+}
