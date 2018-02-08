@@ -227,3 +227,8 @@ func ToTitle(s string) string {
 func ToLower(s string) string {
 	return strings.ToLower(s)
 }
+
+// ToUpper 把单词都变成大写
+func ToUpper(s string) string {
+	return strings.ToUpper(s)
+}
