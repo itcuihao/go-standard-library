@@ -72,3 +72,7 @@ func TestToUpper(t *testing.T) {
 	s := "ab AB ab"
 	t.Log(ToUpper(s))
 }
+func TestTrim(t *testing.T) {
+	s := "ab aaABa ba"
+	t.Log(Trim(s, "a"))
+}
