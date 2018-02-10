@@ -237,3 +237,8 @@ func ToUpper(s string) string {
 func Trim(s, cut string) string {
 	return strings.Trim(s, cut)
 }
+
+// TrimLeft 把string左侧的cut去除
+func TrimLeft(s, cut string) string {
+	return strings.TrimLeft(s, cut)
+}
