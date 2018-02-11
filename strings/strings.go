@@ -242,3 +242,8 @@ func Trim(s, cut string) string {
 func TrimLeft(s, cut string) string {
 	return strings.TrimLeft(s, cut)
 }
+
+// TrimRight 把string右侧的cut去除
+func TrimRight(s, cut string) string {
+	return strings.TrimRight(s, cut)
+}

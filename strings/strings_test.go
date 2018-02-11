@@ -80,3 +80,7 @@ func TestTrimLeft(t *testing.T) {
 	s := "ab aaABa ba"
 	t.Log(TrimLeft(s, "a"))
 }
+func TestTrimRight(t *testing.T) {
+	s := "ab aaABa ba"
+	t.Log(TrimRight(s, "a"))
+}
