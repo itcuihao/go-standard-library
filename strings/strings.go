@@ -247,3 +247,9 @@ func TrimLeft(s, cut string) string {
 func TrimRight(s, cut string) string {
 	return strings.TrimRight(s, cut)
 }
+
+// TrimSpace 把string两侧删除空格和其他预定义字符
+// '\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
+func TrimSpace(s string) string {
+	return strings.TrimSpace(s)
+}
