@@ -80,3 +80,8 @@ func TestTrimLeft(t *testing.T) {
 	s := "ab aaABa ba"
 	t.Log(TrimLeft(s, "a"))
 }
+
+func TestTrimPrefix(t *testing.T) {
+	s := "Abcd"
+	t.Log(TrimPrefix(s, "A"))
+}

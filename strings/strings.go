@@ -242,3 +242,8 @@ func Trim(s, cut string) string {
 func TrimLeft(s, cut string) string {
 	return strings.TrimLeft(s, cut)
 }
+
+// TrimPrefix 如果string头部包含p则删除
+func TrimPrefix(s, p string) string {
+	return strings.TrimPrefix(s, p)
+}
