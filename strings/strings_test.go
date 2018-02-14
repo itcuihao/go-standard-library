@@ -81,6 +81,16 @@ func TestTrimLeft(t *testing.T) {
 	t.Log(TrimLeft(s, "a"))
 }
 
+func TestTrimRight(t *testing.T) {
+	s := "ab aaABa ba"
+	t.Log(TrimRight(s, "a"))
+}
+func TestTrimSpace(t *testing.T) {
+	s := "\r\nab aaABa ba\n\r"
+	t.Log(s)
+	t.Log(TrimSpace(s))
+}
+
 func TestTrimPrefix(t *testing.T) {
 	s := "Abcd"
 	t.Log(TrimPrefix(s, "A"))
