@@ -103,15 +103,8 @@ func HasSuffix() {
 }
 
 // Index 索引
-func Index() {
-	fmt.Println("---Index---")
-	fmt.Println(strings.Index("Australia", "Aus"))
-	fmt.Println(strings.Index("Australia", "aus"))
-	fmt.Println(strings.Index("Australia", "A"))
-	fmt.Println(strings.Index("Australia", "a"))
-	fmt.Println(strings.Index("Australia", "Jap"))
-	fmt.Println(strings.Index("Japan-124", "-"))
-	fmt.Println(strings.Index("Japan-124", ""))
+func Index(s, sub string) int {
+	return strings.Index(s, sub)
 }
 
 // IndexAny 索引
