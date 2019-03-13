@@ -99,3 +99,6 @@ func TestTrimPrefix(t *testing.T) {
 	s := "Abcd"
 	t.Log(TrimPrefix(s, "A"))
 }
+func TestRb(t *testing.T) {
+	RuneAndByte()
+}

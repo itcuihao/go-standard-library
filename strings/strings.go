@@ -1,6 +1,7 @@
 package strings
 
 import (
+	"bytes"
 	"fmt"
 	"strings"
 	"unicode"
@@ -250,4 +251,33 @@ func TrimSpace(s string) string {
 // TrimPrefix 如果string头部包含p则删除
 func TrimPrefix(s, p string) string {
 	return strings.TrimPrefix(s, p)
+}
+
+func RuneAndByte() {
+	s := "大家好"
+	fmt.Println("len:", len(s))
+	r := []rune(s)
+	fmt.Println("len rune:", len(r))
+	for i := 0; i < len(s); i++ {
+		fmt.Printf("%c ", s[i])
+		fmt.Printf("%x ", s[i])
+	}
+
+	for i := 0; i < len(r); i++ {
+		fmt.Printf("%c ", r[i])
+		fmt.Printf("%x ", r[i])
+	}
+
+	fmt.Println()
+
+	// bytes操作的对象也是字节切片，与string的不可变不同，byte是可变的，因此string按增量方式构建字符串会导致多次内存分配和复制，使用bytes就不会因而更高效一点
+
+	var b bytes.Buffer
+	b.WriteString(s)
+	for i := 0; i < 10; i++ {
+		s += "a"
+		b.WriteString("a")
+	}
+	fmt.Println(s)
+	fmt.Println(b.String())
 }
